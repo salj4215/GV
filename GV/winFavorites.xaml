@@ -1,0 +1,48 @@
+﻿<Window x:Class="winFavorites"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Favorite Channels" Height="539" Width="1110" Background="Black">
+    <Grid HorizontalAlignment="Left" Width="1100">
+        <Image x:Name="picFav1" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="125,64,0,0"/>
+        <Image x:Name="picFav2" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="336,64,0,0"/>
+        <Image x:Name="picFav3" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="549,64,0,0"/>
+        <Image x:Name="picFav4" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="760,64,0,0"/>
+        <Image x:Name="picFav5" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="125,300,0,0"/>
+        <Image x:Name="picFav6" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="336,300,0,0"/>
+        <Image x:Name="picFav7" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="549,300,0,0"/>
+        <Image x:Name="picFav8" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="204" Margin="760,300,0,0"/>
+        <TextBlock x:Name="lblFavChannel1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,20,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <TextBlock x:Name="lblFavChannel2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,20,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <TextBlock x:Name="lblFavChannel3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="549,20,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <TextBlock x:Name="lblFavChannel4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="760,20,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <TextBlock x:Name="lblFavChannel5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,256,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <TextBlock x:Name="lblFavChannel6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,256,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <TextBlock x:Name="lblFavChannel7" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="549,256,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <TextBlock x:Name="lblFavChannel8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="760,256,0,0" Height="44" Width="204" TextAlignment="Center" FontFamily="Segoe UI" FontSize="22" Foreground="White" FontWeight="ExtraBold"/>
+        <Button x:Name="btnPreviewFirstFav" Content="" HorizontalAlignment="Left" Height="149" Margin="125,64,0,0" VerticalAlignment="Top" Width="204" Opacity="0"/>
+        <Button x:Name="btnPreviewSecondFav" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="204" Margin="336,69,0,0" Height="144" Opacity="0"/>
+        <Button x:Name="btnPreviewThirdFav" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="204" Margin="549,69,0,0" Height="144" Opacity="0"/>
+        <Button x:Name="btnPreviewFourthFav" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="204" Margin="760,69,0,0" Height="144" Opacity="0"/>
+        <Button x:Name="btnPreviewFifthFav" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="204" Margin="125,300,0,0" Height="144" Opacity="0"/>
+        <Button x:Name="btnPreviewSixthFav" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="204" Margin="336,300,0,0" Height="144" Opacity="0"/>
+        <Button x:Name="btnPreviewSeventhFav" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="204" Margin="549,300,0,0" Height="144" Opacity="0"/>
+        <Button x:Name="btnPreviewEigthFav" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="204" Margin="760,300,0,0" Height="144" Opacity="0"/>
+        <Label x:Name="lblLive1" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,177,0,0" Width="33" Foreground="Red"/>
+        <Label x:Name="lblLive2" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,177,0,0" Width="33" Foreground="Red"/>
+        <Label x:Name="lblLive3" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="699,177,0,0" Width="33" Foreground="Red"/>
+        <Label x:Name="lblLive4" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="917,177,0,0" Width="33" Foreground="Red"/>
+        <Label x:Name="lblLive5" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,414,0,0" Width="33" Foreground="Red"/>
+        <Label x:Name="lblLive6" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,414,0,0" Width="33" Foreground="Red"/>
+        <Label x:Name="lblLive7" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="699,414,0,0" Width="33" Foreground="Red"/>
+        <Label x:Name="lblLive8" Content="LIVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="917,414,0,0" Width="33" Foreground="Red"/>
+        <TextBlock x:Name="lblLiveTitle1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="136,80,0,0" Width="182" Height="34" Foreground="white"/>
+        <TextBlock x:Name="lblLiveTitle2" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="349,80,0,0" Width="182" Height="34" Foreground="white"/>
+        <TextBlock x:Name="lblLiveTitle3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="562,80,0,0" Width="182" Height="34" Foreground="white"/>
+        <TextBlock x:Name="lblLiveTitle4" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="768,80,0,0" Width="182" Height="34" Foreground="white"/>
+        <TextBlock x:Name="lblLiveTitle5" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="136,317,0,0" Width="182" Height="34" Foreground="white"/>
+        <TextBlock x:Name="lblLiveTitle6" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="349,317,0,0" Width="182" Height="34" Foreground="white"/>
+        <TextBlock x:Name="lblLiveTitle7" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="562,317,0,0" Width="182" Height="34" Foreground="white"/>
+        <TextBlock x:Name="lblLiveTitle8" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="768,317,0,0" Width="182" Height="34" Foreground="white"/>
+
+    </Grid>
+</Window>
