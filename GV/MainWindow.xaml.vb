@@ -175,9 +175,7 @@ Class MainWindow
         lblSearchStreamer.Visibility = Windows.Visibility.Visible
         btnGVR.Visibility = Windows.Visibility.Hidden
 
-        'Dim winFavorites As New winFavorites
-        'winFavorites.Show()
-        'winFavorites.Topmost = True
+
 
     End Sub
 
