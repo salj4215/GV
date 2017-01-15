@@ -1,4 +1,5 @@
-﻿Public Class VideoPreviewLinkedList
+﻿'Linked list for video previews
+Public Class VideoPreviewLinkedList
     Private picVideoPreviews As Image
     Private picVideoPreviewsNext As VideoPreviewLinkedList
 
