@@ -85,32 +85,55 @@ Class MainWindow
                 End If
             End If
 
-            If cboQuality.Text = "High" Then
-                If substring.Contains("http") And substring.Contains("high") Then
+            If cboQuality.Text = "720p60" Then
+                If substring.Contains("VIDEO=""720p60""") Then
+                    Dim stringIndex As Integer
+                    stringIndex = Array.IndexOf(substrings, substring)
+                    substring = substrings(stringIndex + 1)
                     videoURL = substring
                     startPlayer()
                     Exit For
                 End If
             End If
 
-            If cboQuality.Text = "Medium" Then
-                If substring.Contains("http") And substring.Contains("medium") Then
+            If cboQuality.Text = "720p" Then
+                If substring.Contains("VIDEO=""720p30""") Then
+                    Dim stringIndex As Integer
+                    stringIndex = Array.IndexOf(substrings, substring)
+                    substring = substrings(stringIndex + 1)
                     videoURL = substring
                     startPlayer()
                     Exit For
                 End If
             End If
 
-            If cboQuality.Text = "Low" Then
-                If substring.Contains("http") And substring.Contains("low") Then
+            If cboQuality.Text = "480p" Then
+                If substring.Contains("VIDEO=""480p30""") Then
+                    Dim stringIndex As Integer
+                    stringIndex = Array.IndexOf(substrings, substring)
+                    substring = substrings(stringIndex + 1)
                     videoURL = substring
                     startPlayer()
                     Exit For
                 End If
             End If
 
-            If cboQuality.Text = "Mobile" Then
-                If substring.Contains("http") And substring.Contains("mobile") Then
+            If cboQuality.Text = "360p" Then
+                If substring.Contains("VIDEO=""360p30""") Then
+                    Dim stringIndex As Integer
+                    stringIndex = Array.IndexOf(substrings, substring)
+                    substring = substrings(stringIndex + 1)
+                    videoURL = substring
+                    startPlayer()
+                    Exit For
+                End If
+            End If
+
+            If cboQuality.Text = "160p" Then
+                If substring.Contains("VIDEO=""160p30""") Then
+                    Dim stringIndex As Integer
+                    stringIndex = Array.IndexOf(substrings, substring)
+                    substring = substrings(stringIndex + 1)
                     videoURL = substring
                     startPlayer()
                     Exit For
@@ -151,17 +174,18 @@ Class MainWindow
 
 
         cboQuality.Items.Add("Source")
-        cboQuality.Items.Add("High")
-        cboQuality.Items.Add("Medium")
-        cboQuality.Items.Add("Low")
-        cboQuality.Items.Add("Mobile")
+        cboQuality.Items.Add("720p60")
+        cboQuality.Items.Add("720p")
+        cboQuality.Items.Add("480p")
+        cboQuality.Items.Add("360p")
+        cboQuality.Items.Add("160p")
 
         cboSearchChoice.Items.Add("Direct Connect")
         cboSearchChoice.Items.Add("Streamers")
         cboSearchChoice.Items.Add("Games")
 
-        'set stream quality to medium (default)
-        cboQuality.Text = cboQuality.Items(2)
+        'set stream quality to 720p (default)
+        cboQuality.Text = cboQuality.Items(0)
         cboSearchChoice.Text = cboSearchChoice.Items(0)
         txtStreamer.Focus()
         label1.Visibility = Windows.Visibility.Hidden
