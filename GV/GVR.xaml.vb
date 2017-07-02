@@ -1,3 +1,8 @@
-﻿Class StreamPlayer
-    'this class will be used to handle the video player
+﻿Public Class GVR
+
+    Dim video As TwitchStream
+
+    Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+
+    End Sub
 End Class

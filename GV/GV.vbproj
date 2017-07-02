@@ -72,15 +72,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GVAppGlobals.vb" />
-    <Compile Include="streamdata.vb" />
     <Compile Include="GVR.xaml.vb">
       <DependentUpon>GVR.xaml</DependentUpon>
     </Compile>
+    <Compile Include="streamdata.vb" />
     <Compile Include="TwitchStream.vb" />
     <Compile Include="VideoPreviewLinkedList.vb" />
     <Compile Include="winFavorites.xaml.vb">
       <DependentUpon>winFavorites.xaml</DependentUpon>
     </Compile>
+    <Page Include="GVR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,10 +97,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="GVR.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="winFavorites.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
