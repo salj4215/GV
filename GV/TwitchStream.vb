@@ -30,7 +30,12 @@ Public Class TwitchStream
             _jsonRequest = WebRequest.Create(_strStreamUrl)
             _jsonRequest.Headers.Add("Client-ID", "5972mihwdpuicb99ys8j86bn2ely2qw")
             'Get response
-            _jsonResponse = CType(_jsonRequest.GetResponse(), HttpWebResponse)
+            Try
+                _jsonResponse = CType(_jsonRequest.GetResponse(), HttpWebResponse)
+            Catch ex As Exception
+                MessageBox.Show("Could not connect to Twitch server. Please check your network connection. GV will now close.", "Connection Error", MessageBoxButton.OK, MessageBoxImage.Information)
+                End
+            End Try
             'Get stream
             _jsonStream = _jsonResponse.GetResponseStream()
             'Create StreamReader object

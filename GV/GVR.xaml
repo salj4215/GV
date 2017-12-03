@@ -4,7 +4,7 @@
     Title="GVR" Height="508" Width="683">
     <Grid Margin="0,0,-8,-5">
         <MediaElement x:Name="gvrPlayer" HorizontalAlignment="Left" Height="331" VerticalAlignment="Top" Width="613" Margin="32,23,0,0"/>
-        <Button Content="Play/Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="32,372,0,0" Click="Button_Click"/>
+        <Button x:Name="btnPlayPause"  Content="Play/Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="32,372,0,0" Click="Button_Click"/>
         <Button Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="146,372,0,0"/>
         <Button Content="Record" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="251,372,0,0"/>
         <Button Content="Replay" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="570,372,0,0"/>
