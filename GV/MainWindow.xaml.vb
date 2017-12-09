@@ -1,9 +1,4 @@
-﻿Imports System.Net
-Imports System.IO
-Imports System
-Imports System.Text
-Imports Newtonsoft.Json
-Imports Newtonsoft.Json.Linq
+﻿
 
 Class MainWindow
 
@@ -14,60 +9,17 @@ Class MainWindow
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
 
         Dim streamerName As String
-        Dim streamURL As String
-        Dim jsonResponseURL As String
-        Dim liveTwitchStream As TwitchStream 'TwitchStream class is created in a seperate file
-        Dim m3uResponse As WebResponse
-        Dim m3uResponseFromServer As String
-
+        Dim videoStreams As String
         'set streamerName to streamer's name entered by user in txtStreamer textbox and set all letters to lower case
         streamerName = txtStreamer.Text.ToLower
 
-        'Create URL for requesting access token from Twitch
-        streamURL = "http://api.twitch.tv/api/channels/" & streamerName & "/access_token"
+        videoStreams = RetreiveStreams(streamerName)
 
-        'Create instance of new TwitchStream object
-        liveTwitchStream = New TwitchStream(streamURL)
-
-        'Get JSON response Url from TwitchStream object
-        jsonResponseURL = liveTwitchStream.JsonResponseUrl
-
-        'Parse JSON using streamdata class
-        Dim streamData As streamdata = JsonConvert.DeserializeObject(Of streamdata)(jsonResponseURL)
-
-        'Create Url for requesting m3u file containing twitch streams
-        streamURL = "http://usher.twitch.tv/api/channel/hls/" & streamerName & ".m3u8?player=twitchweb&&token=" & streamData.token & "&sig=" & streamData.Sig & "&allow_audio_only=true&allow_source=true&type=any&p={random}'"
-
-        'Request m3u file
-        Dim m3uRequest As WebRequest = WebRequest.Create(streamURL)
-
-        'Catch exception if streamer is not live
-        Try
-            m3uResponse = m3uRequest.GetResponse
-            Console.WriteLine(CType(m3uResponse, HttpWebResponse).StatusDescription)
-            Dim dataStream As Stream = m3uResponse.GetResponseStream()
-
-            'Open the stream using a StreamReader for easy access
-            Dim reader As New StreamReader(dataStream)
-
-            'Read the content
-            m3uResponseFromServer = reader.ReadToEnd
-
-            'Display the content
-            Console.WriteLine(m3uResponseFromServer)
-
-            'Clean up the streams and the response
-            reader.Close()
-            m3uResponse.Close()
-        Catch ex As Exception
-
-            'Show message if streamer is not live and exit
-            MessageBox.Show(txtStreamer.Text & " is not live.", "GV", MessageBoxButton.OK, MessageBoxImage.Information)
+        'Send m3u to PlayStream sub if live else exit
+        If videoStreams = "false" Then
             Exit Sub
-        End Try
-
-        'Send m3u to PlayStream sub
-        playStream(m3uResponseFromServer)
+        End If
+        playStream(videoStreams)
     End Sub
 
     Private Sub playStream(ByVal m3u As String)
