@@ -29,67 +29,42 @@ Class MainWindow
         'Split m3u string at every new line and store in substrings()
         Dim substrings() As String = m3u.Split(vbLf)
         For Each substring In substrings
-            If cboQuality.Text = "Source" Then
+            If cboQuality.Text = "Source" Then     'Check what quality was set by user
                 If substring.Contains("http") Then 'first line is a link to source quality stream
-                    videoURL = substring
-                    startPlayer()
+                    videoURL = substring           'the substring is a url to the video stream
+                    startPlayer()                  'call startPlayer sub
                     Exit For
                 End If
             End If
 
-            If cboQuality.Text = "720p60" Then
-                If substring.Contains("VIDEO=""720p60""") Then
-                    Dim stringIndex As Integer
-                    stringIndex = Array.IndexOf(substrings, substring)
-                    substring = substrings(stringIndex + 1)
-                    videoURL = substring
-                    startPlayer()
-                    Exit For
-                End If
+            If cboQuality.Text = "720p60" And substring.Contains("VIDEO=""720p60""") Then
+                videoURL = selectStream(substrings, substring)
+                startPlayer()
+                Exit For
             End If
 
-            If cboQuality.Text = "720p" Then
-                If substring.Contains("VIDEO=""720p30""") Then
-                    Dim stringIndex As Integer
-                    stringIndex = Array.IndexOf(substrings, substring)
-                    substring = substrings(stringIndex + 1)
-                    videoURL = substring
-                    startPlayer()
-                    Exit For
-                End If
+            If cboQuality.Text = "720p" And substring.Contains("VIDEO=""720p30""") Then
+                videoURL = selectStream(substrings, substring)
+                startPlayer()
+                Exit For
             End If
 
-            If cboQuality.Text = "480p" Then
-                If substring.Contains("VIDEO=""480p30""") Then
-                    Dim stringIndex As Integer
-                    stringIndex = Array.IndexOf(substrings, substring)
-                    substring = substrings(stringIndex + 1)
-                    videoURL = substring
-                    startPlayer()
-                    Exit For
-                End If
+            If cboQuality.Text = "480p" And substring.Contains("VIDEO=""480p30""") Then 
+                videoURL = selectStream(substrings, substring)
+                startPlayer()
+                Exit For
             End If
 
-            If cboQuality.Text = "360p" Then
-                If substring.Contains("VIDEO=""360p30""") Then
-                    Dim stringIndex As Integer
-                    stringIndex = Array.IndexOf(substrings, substring)
-                    substring = substrings(stringIndex + 1)
-                    videoURL = substring
-                    startPlayer()
-                    Exit For
-                End If
+            If cboQuality.Text = "360p" And substring.Contains("VIDEO=""360p30""") Then
+                videoURL = selectStream(substrings, substring)
+                startPlayer()
+                Exit For
             End If
 
-            If cboQuality.Text = "160p" Then
-                If substring.Contains("VIDEO=""160p30""") Then
-                    Dim stringIndex As Integer
-                    stringIndex = Array.IndexOf(substrings, substring)
-                    substring = substrings(stringIndex + 1)
-                    videoURL = substring
-                    startPlayer()
-                    Exit For
-                End If
+            If cboQuality.Text = "160p" And substring.Contains("VIDEO=""160p30""") Then
+                videoURL = selectStream(substrings, substring)
+                startPlayer()
+                Exit For
             End If
         Next
     End Sub
@@ -106,6 +81,13 @@ Class MainWindow
             System.Diagnostics.Process.Start(videoURL)
         End If
     End Sub
+
+    Private Function selectStream(strings() As String, subString As String) As String
+        Dim stringIndex As Integer
+        stringIndex = Array.IndexOf(strings, subString)
+        subString = strings(stringIndex + 1)
+        Return subString
+    End Function
 
     Private Sub GV_WinClosed(sender As Object, e As EventArgs) Handles Me.Closing
         If tsmVLC.IsChecked Then

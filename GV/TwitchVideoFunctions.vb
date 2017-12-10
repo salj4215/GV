@@ -7,6 +7,8 @@ Imports Newtonsoft.Json.Linq
 
 Module TwitchVideoFunctions
 
+    'This function is used to retreive a json object that contains data regarding a stream. If the stream is live, the JSON returns links to the video streams 
+    'along with other data such as viewers, title of stream, game being played, etc.
     Public Function RetreiveStreams(ByVal srName As String) As String
 
         Dim streamURL As String
