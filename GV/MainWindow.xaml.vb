@@ -5,68 +5,26 @@ Class MainWindow
     'Declare variables for URl of stream and game streaming
     Private videoURL As String
     Private streamingGame As String
+    Public streamerName As String
+    Public vidQuality As String
 
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
 
-        Dim streamerName As String
         Dim videoStreams As String
         'set streamerName to streamer's name entered by user in txtStreamer textbox and set all letters to lower case
         streamerName = txtStreamer.Text.ToLower
-
+        vidQuality = cboQuality.Text
         videoStreams = RetreiveStreams(streamerName)
 
         'Send m3u to PlayStream sub if live else exit
         If videoStreams = "false" Then
             Exit Sub
         End If
-        playStream(videoStreams)
-    End Sub
-
-    Private Sub playStream(ByVal m3u As String)
-
-        'Play Stream
-
-        'Split m3u string at every new line and store in substrings()
-        Dim substrings() As String = m3u.Split(vbLf)
-        For Each substring In substrings
-            If cboQuality.Text = "Source" Then     'Check what quality was set by user
-                If substring.Contains("http") Then 'first line is a link to source quality stream
-                    videoURL = substring           'the substring is a url to the video stream
-                    startPlayer()                  'call startPlayer sub
-                    Exit For
-                End If
-            End If
-
-            If cboQuality.Text = "720p60" And substring.Contains("VIDEO=""720p60""") Then
-                videoURL = selectStream(substrings, substring)
-                startPlayer()
-                Exit For
-            End If
-
-            If cboQuality.Text = "720p" And substring.Contains("VIDEO=""720p30""") Then
-                videoURL = selectStream(substrings, substring)
-                startPlayer()
-                Exit For
-            End If
-
-            If cboQuality.Text = "480p" And substring.Contains("VIDEO=""480p30""") Then 
-                videoURL = selectStream(substrings, substring)
-                startPlayer()
-                Exit For
-            End If
-
-            If cboQuality.Text = "360p" And substring.Contains("VIDEO=""360p30""") Then
-                videoURL = selectStream(substrings, substring)
-                startPlayer()
-                Exit For
-            End If
-
-            If cboQuality.Text = "160p" And substring.Contains("VIDEO=""160p30""") Then
-                videoURL = selectStream(substrings, substring)
-                startPlayer()
-                Exit For
-            End If
-        Next
+        videoURL = playStream(videoStreams, vidQuality)
+        If videoURL = "null" Then
+            MessageBox.Show("The quality you have chosen is not available", "Quality", MessageBoxButton.OK, MessageBoxImage.Information)
+        End If
+        startPlayer()
     End Sub
 
     Private Sub startPlayer()
@@ -81,13 +39,6 @@ Class MainWindow
             System.Diagnostics.Process.Start(videoURL)
         End If
     End Sub
-
-    Private Function selectStream(strings() As String, subString As String) As String
-        Dim stringIndex As Integer
-        stringIndex = Array.IndexOf(strings, subString)
-        subString = strings(stringIndex + 1)
-        Return subString
-    End Function
 
     Private Sub GV_WinClosed(sender As Object, e As EventArgs) Handles Me.Closing
         If tsmVLC.IsChecked Then
@@ -147,7 +98,6 @@ Class MainWindow
             Dim streamChannel As String
             Dim streamTitle As String
             Dim viewers As String
-            Dim streamerName As String
 
             If txtStreamer.Text = String.Empty Then
                 MessageBox.Show("Please enter a twitch streamer name.", "No Name Entered.", MessageBoxButton.OK, MessageBoxImage.Information)
@@ -226,14 +176,14 @@ Class MainWindow
 
     Private Sub btnWeb_Click(sender As Object, e As EventArgs) Handles btnWeb.Click
 
-        Dim streamerName = txtStreamer.Text.ToLower
+        streamerName = txtStreamer.Text.ToLower
         Process.Start("www.twitch.tv/" & streamerName)
 
     End Sub
 
     Private Sub btnChat_Click(sender As Object, e As EventArgs) Handles btnChat.Click
 
-        Dim streamerName As String = txtStreamer.Text.ToLower
+        streamerName = txtStreamer.Text.ToLower
         If streamerName = String.Empty Then
             MessageBox.Show("Please enter streamer's name into textbox", "GV", MessageBoxButton.OK, MessageBoxImage.Information)
             Exit Sub
@@ -297,5 +247,11 @@ Class MainWindow
             lblSearchGame.Visibility = Windows.Visibility.Collapsed
             lblSearchStreamer.Visibility = Windows.Visibility.Visible
         End If
+    End Sub
+
+    Private Sub btnGVR_Click(sender As Object, e As RoutedEventArgs) Handles btnGVR.Click
+        Dim winGVR As New GVR(streamerName)
+        winGVR.Show()
+        winGVR.Topmost = True
     End Sub
 End Class

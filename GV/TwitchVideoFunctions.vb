@@ -30,7 +30,8 @@ Module TwitchVideoFunctions
         Dim streamData As streamdata = JsonConvert.DeserializeObject(Of streamdata)(jsonResponseURL)
 
         'Create Url for requesting m3u file containing twitch streams
-        streamURL = "http://usher.twitch.tv/api/channel/hls/" & srName & ".m3u8?player=twitchweb&&token=" & streamData.token & "&sig=" & streamData.Sig & "&allow_audio_only=true&allow_source=true&type=any&p={random}'"
+        streamURL = "http://usher.twitch.tv/api/channel/hls/" & srName & ".m3u8?player=twitchweb&&token=" & streamData.token & "&sig=" & streamData.Sig &
+            "&allow_audio_only=true&allow_source=true&type=any&p={random}'"
 
         'Request m3u file
         Dim m3uRequest As WebRequest = WebRequest.Create(streamURL)
@@ -63,4 +64,41 @@ Module TwitchVideoFunctions
         Return m3uResponseFromServer
     End Function
 
+    Public Function selectStream(strings() As String, subString As String) As String
+        Dim stringIndex As Integer
+        stringIndex = Array.IndexOf(strings, subString)
+        subString = strings(stringIndex + 1)
+        Return subString
+    End Function
+
+    Public Function playStream(ByVal m3u As String, quality As String) As String
+        Dim vURL As String
+
+        'Split m3u string at every new line and store in substrings()
+        Dim substrings() As String = m3u.Split(vbLf)
+        For Each substring In substrings
+            If quality = "Source" And substring.Contains("http") Then
+                vURL = substring
+                Exit For
+            ElseIf quality = "720p60" And substring.Contains("VIDEO=""720p60""") Then
+                vURL = selectStream(substrings, substring)
+                Exit For
+            ElseIf quality = "720p" And substring.Contains("VIDEO=""720p30""") Then
+                vURL = selectStream(substrings, substring)
+                Exit For
+            ElseIf quality = "480p" And substring.Contains("VIDEO=""480p30""") Then
+                vURL = selectStream(substrings, substring)
+                Exit For
+            ElseIf quality = "360p" And substring.Contains("VIDEO=""360p30""") Then
+                vURL = selectStream(substrings, substring)
+                Exit For
+            ElseIf quality = "160p" And substring.Contains("VIDEO=""160p30""") Then
+                vURL = selectStream(substrings, substring)
+                Exit For
+            Else
+                vURL = "null"
+            End If
+        Next
+        Return vURL
+    End Function
 End Module
