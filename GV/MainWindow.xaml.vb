@@ -250,7 +250,8 @@ Class MainWindow
     End Sub
 
     Private Sub btnGVR_Click(sender As Object, e As RoutedEventArgs) Handles btnGVR.Click
-        Dim winGVR As New GVR(streamerName)
+        vidQuality = cboQuality.Text
+        Dim winGVR As New GVR(streamerName, vidQuality)
         winGVR.Show()
         winGVR.Topmost = True
     End Sub
