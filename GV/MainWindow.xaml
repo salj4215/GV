@@ -294,9 +294,8 @@
         <ComboBox  x:Name="cboQuality" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="335,69,0,0" BorderBrush="Black" Foreground="White" Style="{DynamicResource ComboBoxStyleSearch}"/>
         <Button x:Name="btnConnect" Content="Watch Stream" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="460,69,0,0" Background="Black" Foreground="White" ToolTip="Watch Stream"/>
         <Button x:Name="btnChat" Content="Open Chat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="560,69,0,0" Background="Black" Foreground="White" ToolTip="Open Chat"/>
-        <Image x:Name="picStreamPreview" Margin="30,235,38,172" Stretch="UniformToFill"/>
-        <Label x:Name="Label13" Content="Viewers:" VerticalAlignment="Top" Margin="584,652,58,0" Foreground="LightBlue"/>
-        <Label x:Name="lblViewers" VerticalAlignment="Top" Margin="597,678,58,0" FontWeight="Bold" Foreground="LightBlue"/>
+        <Label x:Name="Label13" Content="Viewers" VerticalAlignment="Top" Margin="349,725,293,0" Foreground="LightBlue"/>
+        <Label x:Name="lblViewers" VerticalAlignment="Top" Margin="303,725,352,0" FontWeight="Bold" Foreground="LightBlue"/>
         <TextBlock x:Name="lblStreamTitle" TextWrapping="Wrap" Margin="92,0,129,49" TextAlignment="Center" FontFamily="Century Gothic" FontSize="22" Foreground="#6441A5" Height="70" VerticalAlignment="Bottom"/>
         <Button x:Name="btnGameSearch" Content="Game Info" VerticalAlignment="Top" Margin="584,701,0,0" Background="Black" Foreground="White" ToolTip="Curious about the game? Let's Google it" HorizontalAlignment="Left" Width="75"/>
         <Menu HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="708" Background="Black" Foreground="LightBlue">
@@ -312,7 +311,7 @@
             </MenuItem>
         </Menu>
         <Image x:Name="picLogo" Height="75" VerticalAlignment="Top" Margin="30,137,603,0"/>
-        <TextBlock x:Name="lblStreamStatus" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Margin="116,147,0,0" Height="65" Width="528" FontFamily="Century Gothic" FontSize="22" Foreground="White"/>
+        <TextBlock x:Name="lblStreamStatus" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="125,147,0,0" Height="53" Width="561" FontFamily="Century Gothic" FontSize="22" Foreground="White"/>
         <Button x:Name="btnFavorite" Height="60" Margin="19,648,0,0" VerticalAlignment="Top" Background="#FF080000" Foreground="White" ToolTip="Add to Favorite Channels" HorizontalAlignment="Left" Width="62">
             <TextBlock Text="Add to Favorites" TextWrapping="Wrap"/>
         </Button>
@@ -320,6 +319,7 @@
         <Label Content="Search" HorizontalAlignment="Left" Height="25" Margin="201,43,0,0" VerticalAlignment="Top" Width="99" Foreground="LightBlue"/>
         <Label x:Name="lblSearchGame" Content="Enter Game:" HorizontalAlignment="Left" Height="26" Margin="19,43,0,0" VerticalAlignment="Top" Width="160" Foreground="LightBlue"/>
         <Button x:Name="btnGVR" Content="Watch Stream on GVR" HorizontalAlignment="Left" Height="25" Margin="485,94,0,0" VerticalAlignment="Top" Width="131"/>
+        <Image x:Name="picStreamPreview" Margin="30,225,38,172" Stretch="UniformToFill"/>
 
 
         <!--add an option to open GV Guide, to browse different games-->

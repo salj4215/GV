@@ -64,6 +64,11 @@
             Parsed = Newtonsoft.Json.Linq.JObject.Parse(jsonResponseURL)
 
             previewPicURL = Parsed("video_banner").ToString
+
+            If previewPicURL = "" Then
+                previewPicURL = Parsed("profile_banner").ToString
+            End If
+
         Else
 
             previewPicURL = Parsed("stream")("preview")("medium").ToString
