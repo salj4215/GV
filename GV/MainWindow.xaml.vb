@@ -83,6 +83,7 @@ Class MainWindow
         lblSearchGame.Visibility = Windows.Visibility.Hidden
         lblSearchStreamer.Visibility = Windows.Visibility.Visible
         btnGVR.Visibility = Windows.Visibility.Hidden
+        picStreamPreview.Visibility = Windows.Visibility.Visible
 
 
 
@@ -98,6 +99,8 @@ Class MainWindow
             Dim streamChannel As String
             Dim streamTitle As String
             Dim viewers As String
+
+            System.Net.ServicePointManager.SecurityProtocol = Net.SecurityProtocolType.Tls12
 
             If txtStreamer.Text = String.Empty Then
                 MessageBox.Show("Please enter a twitch streamer name.", "No Name Entered.", MessageBoxButton.OK, MessageBoxImage.Information)
@@ -216,6 +219,7 @@ Class MainWindow
     Private Sub mbtnFavorite_Click(sender As Object, e As EventArgs) Handles mbtnFavorite.Click
 
         Dim winFavorites As New winFavorites
+        System.Net.ServicePointManager.SecurityProtocol = Net.SecurityProtocolType.Tls12
         winFavorites.Show()
         winFavorites.Topmost = True
 
