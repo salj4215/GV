@@ -91,6 +91,9 @@
     <Compile Include="GVR.xaml.vb">
       <DependentUpon>GVR.xaml</DependentUpon>
     </Compile>
+    <Compile Include="homeScreen.xaml.vb">
+      <DependentUpon>homeScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="streamdata.vb" />
     <Compile Include="TwitchStream.vb" />
     <Compile Include="TwitchVideoFunctions.vb" />
@@ -99,6 +102,10 @@
       <DependentUpon>winFavorites.xaml</DependentUpon>
     </Compile>
     <Page Include="GVR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="homeScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
